@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { StyleSheet, Text } from 'react-native'
+import React, { Component } from 'react';
+import { StyleSheet, Text } from 'react-native';
 
 export default class Typography extends Component {
   render() {
@@ -45,14 +45,14 @@ export default class Typography extends Component {
       height && { lineHeight: height },
       weight && { fontWeight: weight },
       spacing && { letterSpacing: spacing },
-      style
+      style,
     ];
 
     return (
       <Text style={textStyles} {...props}>
         {children}
       </Text>
-    )
+    );
   }
 }
 

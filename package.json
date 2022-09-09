@@ -28,11 +28,5 @@
     "eslint-config-universe": "^11.1.0",
     "prettier": "^2.7.1"
   },
-  "eslintConfig": {
-    "extends": "universe/native",
-    "import/ignore": [
-      "react-native"
-    ]
-  },
   "private": true
 }
