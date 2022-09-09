@@ -24,15 +24,10 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
+    "@babel/eslint-parser": "^7.18.9",
     "eslint": "^8.23.0",
     "eslint-config-universe": "^11.1.0",
     "prettier": "^2.7.1"
-  },
-  "eslintConfig": {
-    "extends": "universe/native",
-    "import/ignore": [
-      "react-native"
-    ]
   },
   "private": true
 }
