@@ -25,9 +25,6 @@
   },
   "eslintConfig": {
     "extends": "universe/native",
-    "import/ignore": [
-      "react-native"
-    ]
   },
   "private": true
 }
