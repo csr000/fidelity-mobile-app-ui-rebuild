@@ -1,4 +1,5 @@
 module.exports = {
+  root: true,
   parser: '@babel/eslint-parser',
   parserOptions: {
     ecmaVersion: 8,
@@ -10,4 +11,7 @@ module.exports = {
     },
   },
   extends: 'universe/native',
+  rules: {
+    'max-len': [1, { code: 100 }],
+  },
 };
