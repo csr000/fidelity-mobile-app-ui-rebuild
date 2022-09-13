@@ -23,12 +23,12 @@ function Row({ title1, title2 }) {
   );
 }
 
-export default function Home() {
+export default function Setting() {
   return (
     <SafeAreaView>
       <ScrollView showsVerticalScrollIndicator={false} showsHorizontalScrollIndicator={false}>
         <Block middle center flex={1}>
-          <Block width={200} height={200} borderRadius={100} backgroundColor={colors.gray} />
+          <Block width={200} height={200} marginVertical={20} borderRadius={100} backgroundColor={colors.gray} />
           <Pressable
             style={{
               width: 200,
@@ -37,7 +37,7 @@ export default function Home() {
               alignItems: 'center',
               backgroundColor: colors.gray,
               justifyContent: 'center',
-              margin: 5,
+              marginBottom: 5,
             }}>
             <Text>View QR Code</Text>
           </Pressable>
@@ -50,5 +50,3 @@ export default function Home() {
     </SafeAreaView>
   );
 }
-
-// const styles = StyleSheet.create({})
