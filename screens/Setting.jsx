@@ -5,23 +5,23 @@ import Block from '../components/Block';
 import Text from '../components/Text';
 import { colors } from '../components/theme';
 
-const Card = (props) => {
+function Card(props) {
+  const { title } = props;
   return (
-    // eslint-disable-next-line max-len, prettier/prettier
     <Block middle center margin={10} width={150} height={100} borderRadius={20} backgroundColor={colors.gray}>
-      <Text>{props.title}</Text>
+      <Text>{title}</Text>
     </Block>
   );
-};
+}
 
-const Row = ({ title1, title2 }) => {
+function Row({ title1, title2 }) {
   return (
     <Block row>
       <Card title={title1} />
       <Card title={title2} />
     </Block>
   );
-};
+}
 
 export default function Home() {
   return (

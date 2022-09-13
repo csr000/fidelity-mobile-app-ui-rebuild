@@ -1,17 +1,24 @@
 module.exports = {
-  root: true,
+  env: {
+    es2021: true,
+  },
+  extends: ['plugin:react/recommended', 'airbnb'],
+  overrides: [],
   parser: '@babel/eslint-parser',
   parserOptions: {
-    ecmaVersion: 8,
-    requireConfigFile: false,
     ecmaFeatures: {
-      experimentalObjectRestSpread: true,
-      impliedStrict: true,
-      classes: true,
+      jsx: true,
     },
+    ecmaVersion: '13',
+    sourceType: 'module',
   },
-  extends: 'universe/native',
+  plugins: ['react'],
   rules: {
-    'max-len': [1, { code: 100 }],
+    'react/prop-types': 'off',
+    'linebreak-style': 0,
+    'max-len': ['error', { code: 200 }],
+    'react/react-in-jsx-scope': 'off',
+    'react/jsx-closing-bracket-location': 'off',
+    'react/jsx-props-no-spreading': 'off',
   },
 };

@@ -1,28 +1,21 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text } from 'react-native';
 
+const styles = StyleSheet.create({
+  bold: { fontWeight: 'bold' },
+  light: { fontWeight: '200' },
+  center: { textAlign: 'center' },
+  right: { textAlign: 'right' },
+});
 export default class Typography extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
   render() {
     const {
-      center,
-      right,
-      color,
-      size,
-      height,
-      weight,
-      spacing,
-      h1,
-      welcome,
-      name,
-      caption,
-      medium,
-      bold,
-      light,
-      italic,
-      button,
-      style,
-      children,
-      ...props
+      center, right, color, size, height, weight, spacing, h1, welcome, name, caption, medium, bold, light, italic, button, style, children, ...props
     } = this.props;
 
     const textStyles = [
@@ -55,10 +48,3 @@ export default class Typography extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  bold: { fontWeight: 'bold' },
-  light: { fontWeight: '200' },
-  center: { textAlign: 'center' },
-  right: { textAlign: 'right' },
-});

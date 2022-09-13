@@ -7,3 +7,5 @@ export const colors = {
   button: '#F4F5F7',
   orange: '#f58326',
 };
+
+export const font = {};
