@@ -85,7 +85,7 @@ export default function Home({ navigation }) {
       </Block>
 
       <Block row spacebetween padding={5}>
-        <Text color={'grey'}>{item.title}</Text>
+        <Text color="grey">{item.title}</Text>
         <Text>{item.status}</Text>
       </Block>
     </TouchableOpacity>

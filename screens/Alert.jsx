@@ -10,7 +10,7 @@ const screenWidth = Dimensions.get('screen').width;
 
 function Item({ title, date }) {
   return (
-    <Block middle center margin={10} width={screenWidth - 20} height={100} borderRadius={20} backgroundColor={colors.gray}>
+    <Block middle center margin={7} width={screenWidth - 20} height={100} borderRadius={20} backgroundColor={colors.gray}>
       <Text bold size={18}>
         {title}
       </Text>
@@ -68,7 +68,14 @@ export default function Alert({ navigation }) {
     <SafeAreaView>
       <Nav navigation={navigation} title="Notifications" />
       <Block center>
-        <FlatList data={DATA} renderItem={renderItem} keyExtractor={(item) => item.id} />
+        <FlatList
+          data={DATA}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id}
+          contentContainerStyle={{
+            paddingBottom: 150,
+          }}
+        />
       </Block>
     </SafeAreaView>
   );
