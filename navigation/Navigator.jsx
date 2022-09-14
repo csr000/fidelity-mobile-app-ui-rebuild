@@ -6,17 +6,11 @@ import Home from '../screens/Home';
 import Setting from '../screens/Setting';
 import Transaction from '../screens/Transaction';
 import { colors } from '../components/theme';
-import { flushSync } from 'react-dom';
-import { View } from 'react-native';
 
 const Tab = createBottomTabNavigator();
 
 export default function TabNavigation() {
   return (
-<<<<<<< HEAD:navigation/Navigator.jsx
-    <Tab.Navigator screenOptions={{ headerShown: false }}>
-      <Tab.Screen name="Home" component={Home} />
-=======
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
@@ -39,10 +33,10 @@ export default function TabNavigation() {
           // )
         }}
       />
->>>>>>> c0fe4fd (tabbar icons included):navigation/Navigator.js
       <Tab.Screen name="Transaction" component={Transaction} />
       <Tab.Screen name="Setting" component={Setting} />
       <Tab.Screen name="Alert" component={Alert} />
     </Tab.Navigator>
   );
 }
+
