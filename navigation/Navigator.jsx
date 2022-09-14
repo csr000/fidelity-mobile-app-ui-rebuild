@@ -1,5 +1,5 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-//import { AntDesign, Entypo } from "expo-vector-icons";
+// import { AntDesign, Entypo } from "expo-vector-icons";
 
 import Alert from '../screens/Alert';
 import Home from '../screens/Home';
@@ -16,12 +16,12 @@ export default function TabNavigation() {
         headerShown: false,
         tabBarActiveTintColor: colors.white,
         tabBarInactiveTintColor: colors.gray,
-        tabBarShowLabel:false,
+        tabBarShowLabel: false,
         tabBarStyle: {
           backgroundColor: colors.black,
-          height:110,
-          borderRadius:40,
-          position:'absolute'
+          height: 110,
+          borderRadius: 40,
+          position: 'absolute',
         },
       }}>
       <Tab.Screen
