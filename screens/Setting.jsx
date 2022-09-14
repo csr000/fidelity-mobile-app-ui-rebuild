@@ -1,4 +1,4 @@
-import { Pressable, ScrollView } from 'react-native';
+import { Image, Pressable, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import Block from '../components/Block';
@@ -6,8 +6,9 @@ import Text from '../components/Text';
 import { colors } from '../components/theme';
 import Nav from '../components/Nav';
 
-function Card(props) {
-  const { title } = props;
+import profile from '../assets/profile.jpg';
+
+function Card({ title }) {
   return (
     <Block middle center margin={10} width={150} height={100} borderRadius={20} backgroundColor={colors.gray}>
       <Text>{title}</Text>
@@ -29,8 +30,18 @@ export default function Setting({ navigation }) {
     <SafeAreaView>
       <Nav navigation={navigation} title="Account Setting" />
       <ScrollView showsVerticalScrollIndicator={false} showsHorizontalScrollIndicator={false}>
-        <Block middle center flex={1}>
-          <Block width={200} height={200} marginBottom={10} borderRadius={100} backgroundColor={colors.gray} />
+        <Block middle center flex={1} paddingBottom={150}>
+          {/* <Block width={200} height={200} marginBottom={10} borderRadius={100} backgroundColor={colors.gray} /> */}
+          <Image
+            source={profile}
+            style={{
+              width: 150,
+              height: 150,
+              marginBottom: 10,
+              borderRadius: 100,
+              backgroundColor: colors.gray,
+            }}
+          />
           <Pressable
             style={{
               width: 200,
