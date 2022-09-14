@@ -1,9 +1,11 @@
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Image, TouchableOpacity, ima } from 'react-native';
 import Block from '../components/Block';
 import Text from '../components/Text';
-import qrcode from '../assets/img/qrcode.png';
 import { colors } from '../components/theme';
+import qrcode from '../assets/img/qrcode.png';
+import visa from '../assets/img/visa.jpg';
+import mastercard from '../assets/img/mastercard.png';
 
 export default function Home() {
   const Card = (props) => {
@@ -29,12 +31,14 @@ export default function Home() {
 
   const SubCard = (props) => {
     return (
-      <Block backgroundColor={colors.black} marginTop={20} height={120} width={120} padding={10} borderRadius={15}>
-        <Block>{/* card images will be inserted */}</Block>
-        <Text color={colors.white} style={{ marginTop: 20 }}>
+      <Block backgroundColor={colors.black} marginTop={20} height={130} width={120} padding={10} borderRadius={15}>
+        <Block>
+          <Image source={props.image} style={{width:100, height:60, }}/>
+          </Block>
+        <Text color={colors.white} style={{ marginTop: 10 }}>
           {props.name}
         </Text>
-        <Text color={colors.white} style={{ marginTop: 10 }}>
+        <Text color={colors.white} style={{ marginTop: 5 }}>
           -{props.amount}
         </Text>
       </Block>
@@ -86,8 +90,8 @@ export default function Home() {
           Your Cards
         </Text>
         <Block row spacebetween>
-          <SubCard name="Visa Card" amount="$1000.99" />
-          <SubCard name="Master Card" amount="$100.07" />
+          <SubCard name="Visa Card" amount="$1000.99" image={visa} />
+          <SubCard name="Master Card" amount="$100.07" image={mastercard} />
           <SubCard name="Master Card" amount="$100.07" />
         </Block>
       </Block>
