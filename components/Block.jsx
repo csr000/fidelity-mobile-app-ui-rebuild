@@ -29,9 +29,13 @@ export default class Block extends Component {
   }
 
   render() {
+<<<<<<< HEAD:components/Block.jsx
     const {
       flex, row, column, center, middle, right, space, style, children, ...props
     } = this.props;
+=======
+    const { flex, row, column, center, middle, right, space, spacebetween, style, children, ...props } = this.props;
+>>>>>>> 726faef (update tabbar UI):components/Block.js
     const blockStyles = [
       styles.block,
       flex && { flex },
@@ -42,6 +46,7 @@ export default class Block extends Component {
       space && { justifyContent: `space-${space}` },
       row && styles.row,
       column && styles.column,
+      spacebetween && styles.spacebetween,
       style,
     ];
 
@@ -52,3 +57,30 @@ export default class Block extends Component {
     );
   }
 }
+<<<<<<< HEAD:components/Block.jsx
+=======
+
+const styles = StyleSheet.create({
+  block: {
+    // flex: 1,
+  },
+  row: {
+    flexDirection: 'row',
+  },
+  column: {
+    flexDirection: 'column',
+  },
+  center: {
+    alignItems: 'center',
+  },
+  middle: {
+    justifyContent: 'center',
+  },
+  right: {
+    justifyContent: 'flex-end',
+  },
+  spacebetween: {
+    justifyContent: 'space-between',
+  },
+});
+>>>>>>> 726faef (update tabbar UI):components/Block.js
