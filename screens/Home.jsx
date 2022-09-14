@@ -91,7 +91,6 @@ export default function Home() {
           <SubCard name="Master Card" amount="$100.07" />
         </Block>
       </Block>
-      
     </SafeAreaView>
   );
 }
