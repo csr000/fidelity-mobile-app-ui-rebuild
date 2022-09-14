@@ -27,20 +27,23 @@ export default function Home() {
     );
   };
 
-  const SubCard =(props)=>{
-    return(
-      <Block backgroundColor={colors.black} marginTop={20} height={120} width={120} padding={10} borderRadius={15} >
-        <Block>
-          
-        </Block>
-        <Text color={colors.white} style={{marginTop:20}}>{props.name}</Text>
-        <Text color={colors.white} style={{marginTop:10}}>-{props.amount}</Text>
+  const SubCard = (props) => {
+    return (
+      <Block backgroundColor={colors.black} marginTop={20} height={120} width={120} padding={10} borderRadius={15}>
+        <Block>{/* card images will be inserted */}</Block>
+        <Text color={colors.white} style={{ marginTop: 20 }}>
+          {props.name}
+        </Text>
+        <Text color={colors.white} style={{ marginTop: 10 }}>
+          -{props.amount}
+        </Text>
       </Block>
-    )
-  }
+    );
+  };
   return (
     <SafeAreaView style={{ height: '100%', width: '100%', display: 'flex' }}>
       <Block row spacebetween margin={20}>
+        {/* icons will be inserted */}
         <Block row>
           <Text bold size={20}>
             Fidelity
@@ -71,22 +74,24 @@ export default function Home() {
         </Block>
       </Block>
 
-<Block backgroundColor={colors.gray} height={'50%'} width={'100%'} borderRadius={20} marginTop={0} style={{position:'absolute', bottom:"0%"}}/>
+      <Block backgroundColor={colors.gray} height={'50%'} width={'100%'} borderRadius={20} marginTop={0} style={{ position: 'absolute', bottom: '0%' }} />
 
       <Block backgroundColor={colors.black} margin={20} borderRadius={10} width={'90%'}>
         <Row title1="Transfers" title2="Payments" title3="Airtime & Data" />
         <Row title1="My Payees" title2="Account Services" title3="View All" />
       </Block>
-      
 
-      <Block margin={20}  >
-        <Text size={20} bold >Your Cards</Text>
-        <Block row spacebetween >
-        <SubCard name="Visa Card" amount="$1000.99" />
-        <SubCard name="Master Card" amount="$100.07" />
-        <SubCard name="Master Card" amount="$100.07" />
+      <Block margin={20}>
+        <Text size={20} bold>
+          Your Cards
+        </Text>
+        <Block row spacebetween>
+          <SubCard name="Visa Card" amount="$1000.99" />
+          <SubCard name="Master Card" amount="$100.07" />
+          <SubCard name="Master Card" amount="$100.07" />
         </Block>
       </Block>
+      
     </SafeAreaView>
   );
 }
