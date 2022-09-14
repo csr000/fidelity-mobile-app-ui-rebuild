@@ -4,55 +4,69 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import Block from '../components/Block';
 import Text from '../components/Text';
 import { colors } from '../components/theme';
+import Nav from '../components/Nav';
 
 const screenWidth = Dimensions.get('screen').width;
 
-function Item({ title }) {
+function Item({ title, date }) {
   return (
     <Block middle center margin={10} width={screenWidth - 20} height={100} borderRadius={20} backgroundColor={colors.gray}>
-      <Text>{title}</Text>
+      <Text bold size={18}>
+        {title}
+      </Text>
+      <Text>{date}</Text>
+      <Text marginTop={10}>tap to read</Text>
     </Block>
   );
 }
 
-export default function Alert() {
+export default function Alert({ navigation }) {
   const DATA = [
     {
       id: '1',
-      title: ' Item',
+      title: ' MAINTENANCE: FX Sale & MMI',
+      date: ' 20:24 2022 - 09 - 05',
     },
     {
       id: '2',
-      title: ' Item',
+      title: ' Security Tip',
+      date: ' 20:24 2022 - 09 - 05',
     },
     {
       id: '3',
-      title: ' Item',
+      title: 'GhanaPay',
+      date: ' 20:24 2022 - 09 - 05',
     },
     {
       id: '4',
-      title: ' Item',
+      title: 'E-Levy Exemptions',
+      date: ' 20:24 2022 - 09 - 05',
     },
     {
       id: '5',
-      title: ' Item',
+      title: ' GhanaCard',
+      date: ' 20:24 2022 - 09 - 05',
     },
     {
       id: '6',
-      title: ' Item',
+      title: ' GhanaCard',
+      date: ' 20:24 2022 - 09 - 05',
     },
     {
       id: '7',
-      title: ' Item',
+      title: ' Earn, Save, Invest - Repeat',
+      date: ' 20:24 2022 - 09 - 05',
     },
     {
       id: '8',
-      title: ' Item',
+      title: ' Mobile app downtime',
+      date: ' 20:24 2022 - 09 - 05',
     },
   ];
-  const renderItem = ({ item }) => <Item title={item.title} />;
+  const renderItem = ({ item }) => <Item title={item.title} date={item.date} />;
   return (
     <SafeAreaView>
+      <Nav navigation={navigation} title="Notifications" />
       <Block center>
         <FlatList data={DATA} renderItem={renderItem} keyExtractor={(item) => item.id} />
       </Block>

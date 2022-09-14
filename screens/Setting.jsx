@@ -4,6 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import Block from '../components/Block';
 import Text from '../components/Text';
 import { colors } from '../components/theme';
+import Nav from '../components/Nav';
 
 function Card(props) {
   const { title } = props;
@@ -23,12 +24,13 @@ function Row({ title1, title2 }) {
   );
 }
 
-export default function Setting() {
+export default function Setting({ navigation }) {
   return (
     <SafeAreaView>
+      <Nav navigation={navigation} title="Account Setting" />
       <ScrollView showsVerticalScrollIndicator={false} showsHorizontalScrollIndicator={false}>
         <Block middle center flex={1}>
-          <Block width={200} height={200} marginVertical={20} borderRadius={100} backgroundColor={colors.gray} />
+          <Block width={200} height={200} marginBottom={10} borderRadius={100} backgroundColor={colors.gray} />
           <Pressable
             style={{
               width: 200,

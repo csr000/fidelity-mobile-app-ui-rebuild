@@ -1,9 +1,10 @@
+import { FlatList, TouchableOpacity } from 'react-native';
+
+import { SafeAreaView } from 'react-native-safe-area-context';
 import Block from '../components/Block';
 import Text from '../components/Text';
 import { colors } from '../components/theme';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { FlatList, TouchableOpacity } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import Nav from '../components/Nav';
 
 export default function Home({ navigation }) {
   const data = [
@@ -65,44 +66,34 @@ export default function Home({ navigation }) {
     },
   ];
 
-  const renderItem = ({ item }) => {
-    return (
-      <TouchableOpacity
-        style={{
-          borderBottomWidth: 1,
-          borderColor: colors.gray,
-          margin: 10,
-          height: 90,
-        }}>
-        <Block backgroundColor={colors.gray} padding={5}>
-          <Text bold size={15}>
-            {item.title}
-          </Text>
-          <Block row spacebetween marginTop={5}>
-            <Text>{item.date}</Text>
-            <Text>{item.status}</Text>
-          </Block>
+  const renderItem = ({ item }) => (
+    <TouchableOpacity
+      style={{
+        borderBottomWidth: 1,
+        borderColor: colors.gray,
+        margin: 10,
+        height: 90,
+      }}>
+      <Block backgroundColor={colors.gray} padding={5}>
+        <Text bold size={15}>
+          {item.title}
+        </Text>
+        <Block row spacebetween marginTop={5}>
+          <Text>{item.date}</Text>
+          <Text>{item.status}</Text>
         </Block>
+      </Block>
 
-        <Block row spacebetween marginTop={10}>
-          <Text>{item.description}</Text>
-          <Text>{item.amount}</Text>
-        </Block>
-      </TouchableOpacity>
-    );
-  };
+      <Block row spacebetween marginTop={10}>
+        <Text>{item.description}</Text>
+        <Text>{item.amount}</Text>
+      </Block>
+    </TouchableOpacity>
+  );
 
   return (
     <SafeAreaView>
-      <Block center spacebetween row margin={20} width={'50%'}>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Ionicons name="arrow-back" size={28} color="black" />
-        </TouchableOpacity>
-        <Text bold size={20}>
-          History
-        </Text>
-      </Block>
-
+      <Nav navigation={navigation} title="History" />
       <FlatList
         data={data}
         keyExtractor={(item) => item.id}
@@ -115,5 +106,3 @@ export default function Home({ navigation }) {
     </SafeAreaView>
   );
 }
-
-// const styles = StyleSheet.create({})
