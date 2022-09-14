@@ -1,5 +1,5 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-// import { AntDesign, Entypo } from "expo-vector-icons";
+import { SimpleLineIcons, Foundation, Feather } from 'expo-vector-icons';
 
 import Alert from '../screens/Alert';
 import Home from '../screens/Home';
@@ -19,8 +19,10 @@ export default function TabNavigation() {
         tabBarShowLabel: false,
         tabBarStyle: {
           backgroundColor: colors.black,
-          height: 110,
-          borderRadius: 40,
+          height: 70,
+          borderTopRightRadius: 30,
+          borderTopLeftRadius: 30,
+          Outline: 'none',
           position: 'absolute',
         },
       }}>
@@ -28,14 +30,23 @@ export default function TabNavigation() {
         name="Home"
         component={Home}
         options={{
-          // tabBarIcon:({}) =>(
-          //   <Entypo name="home" size={30} color={color} />
-          // )
+          tabBarIcon: ({ color }) => <SimpleLineIcons name="home" size={30} color={color} />
         }}
       />
-      <Tab.Screen name="Transaction" component={Transaction} />
-      <Tab.Screen name="Setting" component={Setting} />
-      <Tab.Screen name="Alert" component={Alert} />
+      <Tab.Screen
+        name="Transaction"
+        component={Transaction}
+        options={{
+          tabBarIcon: ({ color }) => <Foundation name="clipboard-notes" size={30} color={color} />,
+        }}
+      />
+      <Tab.Screen name="Setting" component={Setting} options={{
+          tabBarIcon: ({ color }) =><Feather name="settings" size={30} color={color} />,
+        }}  />
+      <Tab.Screen name="Alert" component={Alert} 
+      options={{
+        tabBarIcon: ({ color }) => <Feather name="message-square" size={30} color={color} />,
+      }} />
     </Tab.Navigator>
   );
 }
