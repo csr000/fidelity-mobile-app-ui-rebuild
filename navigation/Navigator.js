@@ -7,6 +7,7 @@ import Setting from '../screens/Setting';
 import Transaction from '../screens/Transaction';
 import { colors } from '../components/theme';
 import { flushSync } from 'react-dom';
+import { View } from 'react-native';
 
 const Tab = createBottomTabNavigator();
 
@@ -20,8 +21,9 @@ export default function TabNavigation() {
         tabBarShowLabel:false,
         tabBarStyle: {
           backgroundColor: colors.black,
-          height:130,
+          height:110,
           borderRadius:40,
+          position:'absolute'
         },
       }}>
       <Tab.Screen
