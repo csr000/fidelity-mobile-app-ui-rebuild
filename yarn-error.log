@@ -14,16 +14,8 @@ Platform:
   darwin arm64
 
 Trace: 
-  Error: https://registry.npmjs.org/color-name/-/color-name-1.1.4.tgz: ESOCKETTIMEDOUT
-      at ClientRequest.<anonymous> (/Users/jasminebabayara/.yarn/lib/cli.js:141517:19)
-      at Object.onceWrapper (node:events:639:28)
-      at ClientRequest.emit (node:events:520:28)
-      at TLSSocket.emitRequestTimeout (node:_http_client:758:9)
-      at Object.onceWrapper (node:events:639:28)
-      at TLSSocket.emit (node:events:532:35)
-      at TLSSocket.Socket._onTimeout (node:net:501:8)
-      at listOnTimeout (node:internal/timers:559:17)
-      at processTimers (node:internal/timers:502:7)
+  Error: read ECONNRESET
+      at TLSWrap.onStreamRead (node:internal/stream_base_commons:217:20)
 
 npm manifest: 
   {
