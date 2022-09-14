@@ -1,27 +1,6 @@
 import { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
 
-const styles = StyleSheet.create({
-  block: {
-    // flex: 1,
-  },
-  row: {
-    flexDirection: 'row',
-  },
-  column: {
-    flexDirection: 'column',
-  },
-  center: {
-    alignItems: 'center',
-  },
-  middle: {
-    justifyContent: 'center',
-  },
-  right: {
-    justifyContent: 'flex-end',
-  },
-});
-
 export default class Block extends Component {
   constructor(props) {
     super(props);
@@ -29,13 +8,7 @@ export default class Block extends Component {
   }
 
   render() {
-<<<<<<< HEAD:components/Block.jsx
-    const {
-      flex, row, column, center, middle, right, space, style, children, ...props
-    } = this.props;
-=======
     const { flex, row, column, center, middle, right, space, spacebetween, style, children, ...props } = this.props;
->>>>>>> 726faef (update tabbar UI):components/Block.js
     const blockStyles = [
       styles.block,
       flex && { flex },
@@ -57,8 +30,6 @@ export default class Block extends Component {
     );
   }
 }
-<<<<<<< HEAD:components/Block.jsx
-=======
 
 const styles = StyleSheet.create({
   block: {
@@ -83,4 +54,3 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
 });
->>>>>>> 726faef (update tabbar UI):components/Block.js
