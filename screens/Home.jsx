@@ -13,7 +13,7 @@ function Card(props) {
   const { title } = props;
   return (
     <Block center>
-      <Block  width={30} height={30} borderRadius={15} backgroundColor={colors.gray} />
+      <Block width={30} height={30} borderRadius={15} backgroundColor={colors.gray} />
       <Text color={colors.white} style={{ width: 70, textAlign: 'center' }}>
         {title}
       </Text>
@@ -45,23 +45,21 @@ function Row({ title1, title2, title3 }) {
 //   );
 // }
 export default function Home() {
-
-  const sliderWidth = Dimensions.get("window").width;
+  const sliderWidth = Dimensions.get('window').width;
   let carousel;
   const [activeNumber, setActiveNumber] = useState(0);
   const [carouselList, setCarouselList] = useState([
     {
-      image: <Image source={mastercard}  />,
+      image: <Image source={mastercard} />,
     },
     {
-      image: <Image source={mastercard}  />,
+      image: <Image source={mastercard} />,
     },
     {
-      image: <Image source={mastercard}  />,
+      image: <Image source={mastercard} />,
     },
   ]);
 
- 
   return (
     <SafeAreaView style={{ height: '100%', width: '100%', display: 'flex' }}>
       <Block row spacebetween marginLeft={15}>
@@ -102,51 +100,46 @@ export default function Home() {
         <Text size={20} bold>
           Your Cards
         </Text>
-         <Carousel
-          layout={"default"}
+        <Carousel
+          layout={'default'}
           //ref={(ref) => (carousel = ref)}
           activeAnimationType={'spring'}
           data={carouselList}
           sliderWidth={sliderWidth}
           itemWidth={250}
           renderItem={renderItem}
-          onSnapToItem={(index) => setActiveNumber(index) }
+          onSnapToItem={(index) => setActiveNumber(index)}
         />
         <Pagination
           dotsLength={carouselList.length}
           activeDotIndex={activeNumber}
-          containerStyle={{ backgroundColor: 'transparent', height:1, width:1 }}
+          containerStyle={{ backgroundColor: 'transparent', height: 1, width: 1 }}
           dotStyle={{
-              width: 10,
-              height: 10,
-              borderRadius: 5,
-              backgroundColor: colors.black
+            width: 10,
+            height: 10,
+            borderRadius: 5,
+            backgroundColor: colors.black,
           }}
           inactiveDotStyle={{
-            backgroundColor: colors.black
+            backgroundColor: colors.black,
           }}
           inactiveDotOpacity={0.6}
           inactiveDotScale={0.6}
         />
       </Block>
 
-    
       <Block backgroundColor={colors.black} marginLeft={15} borderRadius={10} width="92%">
         <Row title1="Transfers" title2="Payments" title3="Airtime & Data" />
         <Row title1="My Payees" title2="Account Services" title3="View All" />
       </Block>
-
-      
     </SafeAreaView>
   );
 }
 
-const renderItem = ({item, index}) => {
+const renderItem = ({ item, index }) => {
   return (
-      <TouchableOpacity style={{marginTop: -60, justifyContent:'center', alignItems:'center'}}>
-          <Text style={{height: 220, width:'100%', justifyContent:'center'}} >{ item.image }</Text>
-      </TouchableOpacity>
+    <TouchableOpacity style={{ marginTop: -60, justifyContent: 'center', alignItems: 'center' }}>
+      <Text style={{ height: 220, width: '100%', justifyContent: 'center' }}>{item.image}</Text>
+    </TouchableOpacity>
   );
 };
-
- 
