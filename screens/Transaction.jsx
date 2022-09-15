@@ -1,9 +1,9 @@
 import { FlatList, TouchableOpacity } from 'react-native';
-
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { AntDesign, FontAwesome5 } from '@expo/vector-icons';
+import { colors } from '../components/theme';
 import Block from '../components/Block';
 import Text from '../components/Text';
-import { colors } from '../components/theme';
 import Nav from '../components/Nav';
 
 export default function Home({ navigation }) {
@@ -12,7 +12,7 @@ export default function Home({ navigation }) {
       id: 1,
       title: 'Transfers',
       date: '14 Sep',
-      status: 'Completed',
+      status: <FontAwesome5 name="clock" size={22} color="grey" />,
       description: 'Wallet To Account',
       amount: '$100.00',
     },
@@ -20,7 +20,7 @@ export default function Home({ navigation }) {
       id: 2,
       title: 'Transfers',
       date: '14 Sep',
-      status: 'Completed',
+      status: <AntDesign name="checkcircle" size={22} color="black" />,
       description: 'Wallet To Account',
       amount: '$100.00',
     },
@@ -28,7 +28,7 @@ export default function Home({ navigation }) {
       id: 3,
       title: 'Subscriptions',
       date: '10 Sep',
-      status: 'Completed',
+      status: <AntDesign name="checkcircle" size={22} color="black" />,
       description: 'Netflix Premium Monthly Payment',
       amount: '$10.00',
     },
@@ -36,7 +36,7 @@ export default function Home({ navigation }) {
       id: 4,
       title: 'Transfers',
       date: '8 Sep',
-      status: 'Completed',
+      status: <FontAwesome5 name="clock" size={22} color="grey" />,
       description: 'Wallet To Account',
       amount: '$80.00',
     },
@@ -44,7 +44,7 @@ export default function Home({ navigation }) {
       id: 5,
       title: 'Subscriptions',
       date: '2 Sep',
-      status: 'Completed',
+      status: <AntDesign name="checkcircle" size={22} color="black" />,
       description: 'Apple Music Monthly Payment',
       amount: '$6.99',
     },
@@ -52,7 +52,7 @@ export default function Home({ navigation }) {
       id: 6,
       title: 'Subscriptions',
       date: '2 Sep',
-      status: 'Completed',
+      status: <FontAwesome5 name="clock" size={22} color="grey" />,
       description: 'Spotify Monthly Payment',
       amount: '$10.99',
     },
@@ -60,7 +60,7 @@ export default function Home({ navigation }) {
       id: 7,
       title: 'Transfers',
       date: '1 Sep',
-      status: 'Completed',
+      status: <FontAwesome5 name="clock" size={24} color="black" />,
       description: 'Wallet To Account',
       amount: '$4.90',
     },
@@ -72,21 +72,21 @@ export default function Home({ navigation }) {
         borderBottomWidth: 1,
         borderColor: colors.gray,
         margin: 10,
-        height: 90,
+        height: 100,
       }}>
-      <Block backgroundColor={colors.gray} padding={5}>
-        <Text bold size={15}>
-          {item.title}
+      <Block padding={5}>
+        <Text bold size={17}>
+          {item.date}
         </Text>
-        <Block row spacebetween marginTop={5}>
-          <Text>{item.date}</Text>
-          <Text>{item.status}</Text>
+        <Block row spacebetween marginTop={10}>
+          <Text>{item.description}</Text>
+          <Text>{item.amount}</Text>
         </Block>
       </Block>
 
-      <Block row spacebetween marginTop={10}>
-        <Text>{item.description}</Text>
-        <Text>{item.amount}</Text>
+      <Block row spacebetween padding={5}>
+        <Text color={'grey'}>{item.title}</Text>
+        <Text>{item.status}</Text>
       </Block>
     </TouchableOpacity>
   );
