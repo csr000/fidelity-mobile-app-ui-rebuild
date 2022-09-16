@@ -1,5 +1,7 @@
+import React, { useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Image, TouchableOpacity } from 'react-native';
+import { Image, TouchableOpacity, Dimensions } from 'react-native';
+import Carousel, { Pagination } from 'react-native-snap-carousel';
 import Block from '../components/Block';
 import Text from '../components/Text';
 import { colors } from '../components/theme';
@@ -11,7 +13,7 @@ function Card(props) {
   const { title } = props;
   return (
     <Block center>
-      <Block margin={10} width={30} height={30} borderRadius={15} backgroundColor={colors.gray} />
+      <Block width={30} height={30} borderRadius={15} backgroundColor={colors.gray} />
       <Text color={colors.white} style={{ width: 70, textAlign: 'center' }}>
         {title}
       </Text>
@@ -20,28 +22,44 @@ function Card(props) {
 }
 function Row({ title1, title2, title3 }) {
   return (
-    <Block row spacebetween margin={10}>
+    <Block row spacebetween margin={10} height={70}>
       <Card title={title1} />
       <Card title={title2} />
       <Card title={title3} />
     </Block>
   );
 }
-function SubCard(props) {
-  const { image, name, amount } = props;
-  return (
-    <Block backgroundColor={colors.black} marginTop={10} height={130} width={110} padding={10} borderRadius={15}>
-      <Block>
-        <Image source={image} style={{ width: 90, height: 60 }} />
-      </Block>
-      <Text color={colors.white} style={{ marginTop: 10 }}>
-        {name}
-      </Text>
-      <Text color={colors.white} style={{ marginTop: 5 }}> -{amount}</Text>
-    </Block>
-  );
-}
+
+// function SubCard(props) {
+//   const { image, name, amount } = props;
+//   return (
+//     <Block backgroundColor={colors.black} marginTop={10} height={130} width={110} padding={10} borderRadius={15}>
+//       <Block>
+//         <Image source={image} style={{ width: 90, height: 60 }} />
+//       </Block>
+//       <Text color={colors.white} style={{ marginTop: 10 }}>
+//         {name}
+//       </Text>
+//       <Text color={colors.white} style={{ marginTop: 5 }}> -{amount}</Text>
+//     </Block>
+//   );
+// }
 export default function Home() {
+  const sliderWidth = Dimensions.get('window').width;
+  let carousel;
+  const [activeNumber, setActiveNumber] = useState(0);
+  const [carouselList, setCarouselList] = useState([
+    {
+      image: <Image source={mastercard} />,
+    },
+    {
+      image: <Image source={mastercard} />,
+    },
+    {
+      image: <Image source={mastercard} />,
+    },
+  ]);
+
   return (
     <SafeAreaView style={{ height: '100%', width: '100%', display: 'flex' }}>
       <Block row spacebetween marginLeft={15}>
@@ -76,23 +94,52 @@ export default function Home() {
         </Block>
       </Block>
 
-      <Block backgroundColor={colors.gray} height="50%" width="100%" borderRadius={20} marginTop={0} style={{ position: 'absolute', bottom: '0%' }} />
+      <Block backgroundColor={colors.gray} height="50%" width="100%" borderRadius={20} style={{ position: 'absolute', bottom: '0%' }} />
 
-      <Block backgroundColor={colors.black} margin={15} borderRadius={10} width="92%">
-        <Row title1="Transfers" title2="Payments" title3="Airtime & Data" />
-        <Row title1="My Payees" title2="Account Services" title3="View All" />
-      </Block>
-
-      <Block marginLeft={15}>
+      <Block center>
         <Text size={20} bold>
           Your Cards
         </Text>
-        <Block row spacebetween marginRight={15}>
-          <SubCard name="Visa Card" amount="$1000.99" image={visa} />
-          <SubCard name="Master Card" amount="$100.07" image={mastercard} />
-          <SubCard name="Master Card" amount="$100.07" />
-        </Block>
+        <Carousel
+          layout={'default'}
+          //ref={(ref) => (carousel = ref)}
+          activeAnimationType={'spring'}
+          data={carouselList}
+          sliderWidth={sliderWidth}
+          itemWidth={250}
+          renderItem={renderItem}
+          onSnapToItem={(index) => setActiveNumber(index)}
+        />
+        <Pagination
+          dotsLength={carouselList.length}
+          activeDotIndex={activeNumber}
+          containerStyle={{ backgroundColor: 'transparent', height: 1, width: 1 }}
+          dotStyle={{
+            width: 10,
+            height: 10,
+            borderRadius: 5,
+            backgroundColor: colors.black,
+          }}
+          inactiveDotStyle={{
+            backgroundColor: colors.black,
+          }}
+          inactiveDotOpacity={0.6}
+          inactiveDotScale={0.6}
+        />
+      </Block>
+
+      <Block backgroundColor={colors.black} marginLeft={15} borderRadius={10} width="92%">
+        <Row title1="Transfers" title2="Payments" title3="Airtime & Data" />
+        <Row title1="My Payees" title2="Account Services" title3="View All" />
       </Block>
     </SafeAreaView>
   );
 }
+
+const renderItem = ({ item, index }) => {
+  return (
+    <TouchableOpacity style={{ marginTop: -60, justifyContent: 'center', alignItems: 'center' }}>
+      <Text style={{ height: 220, width: '100%', justifyContent: 'center' }}>{item.image}</Text>
+    </TouchableOpacity>
+  );
+};
