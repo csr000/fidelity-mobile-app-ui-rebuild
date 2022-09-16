@@ -11,8 +11,8 @@ import Block from '../components/Block';
 
 const Tab = createBottomTabNavigator();
 
-const TabBarCustomButton = ({ accessibilityState, children, onPress }) => {
-  var isSelected = accessibilityState.selected;
+function TabBarCustomButton({ accessibilityState, children, onPress }) {
+  const isSelected = accessibilityState.selected;
 
   if (isSelected) {
     return (
@@ -40,18 +40,17 @@ const TabBarCustomButton = ({ accessibilityState, children, onPress }) => {
         </TouchableOpacity>
       </Block>
     );
-  } else {
-    return (
-      <TouchableOpacity
-        style={{
-          flex: 1,
-        }}
-        onPress={onPress}>
-        {children}
-      </TouchableOpacity>
-    );
   }
-};
+  return (
+    <TouchableOpacity
+      style={{
+        flex: 1,
+      }}
+      onPress={onPress}>
+      {children}
+    </TouchableOpacity>
+  );
+}
 
 export default function TabNavigation() {
   return (

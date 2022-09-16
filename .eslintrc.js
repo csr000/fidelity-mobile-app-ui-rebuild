@@ -21,5 +21,6 @@ module.exports = {
     'react/jsx-closing-bracket-location': 'off',
     'react/jsx-props-no-spreading': 'off',
     'react/jsx-one-expression-per-line': 'off',
+    'react/no-unstable-nested-components': 'off',
   },
 };
