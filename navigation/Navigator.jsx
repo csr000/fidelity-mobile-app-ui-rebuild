@@ -19,20 +19,12 @@ function TabBarCustomButton({ accessibilityState, children, onPress }) {
       <Block flex={1} style={{ alignItems: 'center' }}>
         <TouchableOpacity
           style={{
-            bottom: 18,
             justifyContent: 'center',
             alignItems: 'center',
             width: 50,
             height: 50,
             borderRadius: 25,
             backgroundColor: colors.white,
-            shadowColor: colors.black,
-            shadowOpacity: 8,
-            shadowOffset: {
-              height: 0,
-              width: 0,
-            },
-            shadowRadius: 13,
             elevation: 5,
           }}
           onPress={onPress}>
