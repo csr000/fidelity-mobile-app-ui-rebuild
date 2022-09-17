@@ -1,10 +1,14 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 export default class Block extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
   render() {
-    const { flex, row, column, center, middle, right, space, style, children, ...props } =
-      this.props;
+    const { flex, row, column, center, middle, right, space, spacebetween, style, children, ...props } = this.props;
     const blockStyles = [
       styles.block,
       flex && { flex },
@@ -15,6 +19,7 @@ export default class Block extends Component {
       space && { justifyContent: `space-${space}` },
       row && styles.row,
       column && styles.column,
+      spacebetween && styles.spacebetween,
       style,
     ];
 
@@ -44,5 +49,8 @@ const styles = StyleSheet.create({
   },
   right: {
     justifyContent: 'flex-end',
+  },
+  spacebetween: {
+    justifyContent: 'space-between',
   },
 });
