@@ -1,4 +1,4 @@
-import { Image, Pressable, ScrollView } from 'react-native';
+import { Image, ScrollView, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import Block from '../components/Block';
@@ -10,8 +10,19 @@ import profile from '../assets/profile.jpg';
 
 function Card({ title }) {
   return (
-    <Block middle center margin={10} width={150} height={100} borderRadius={20} backgroundColor={colors.gray}>
-      <Text>{title}</Text>
+    <Block middle center margin={10} width={150} height={100} borderRadius={20} backgroundColor={colors.white} elevation={5}>
+      <TouchableOpacity
+        style={{
+          width: 150,
+          height: 100,
+          borderRadius: 20,
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}>
+        <Text bold color={colors.orange}>
+          {title}
+        </Text>
+      </TouchableOpacity>
     </Block>
   );
 }
@@ -42,18 +53,19 @@ export default function Setting({ navigation }) {
               backgroundColor: colors.gray,
             }}
           />
-          <Pressable
+          <TouchableOpacity
             style={{
               width: 200,
               height: 40,
               borderRadius: 10,
               alignItems: 'center',
-              backgroundColor: colors.gray,
+              backgroundColor: colors.orange,
               justifyContent: 'center',
               marginBottom: 5,
+              elevation: 5,
             }}>
-            <Text>View QR Code</Text>
-          </Pressable>
+            <Text bold color={colors.white}>click to show account details</Text>
+          </TouchableOpacity>
           <Row title1="Update Product" title2="Application Update" />
           <Row title1="Update Accounts" title2="Sole Proprietor Accounts" />
           <Row title1="Pin Setup" title2="Biometrics" />
