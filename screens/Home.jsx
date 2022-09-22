@@ -1,158 +1,100 @@
-import { Image, TouchableOpacity, Dimensions } from 'react-native';
+import { Image, TouchableOpacity, Dimensions, Alert, ImageBackground } from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import mastercard from '../assets/img/mastercard.png';
 import { LinearGradient } from 'expo-linear-gradient';
 import qrcode from '../assets/img/qrcode.png';
 import { colors } from '../components/theme';
-import { Entypo } from '@expo/vector-icons';
+import { Entypo, FontAwesome5, FontAwesome, MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 import React, { useState } from 'react';
 import Block from '../components/Block';
 import Text from '../components/Text';
+import homebg from '../assets/img/home.jpeg';
 
-function Card(props) {
-  const { title } = props;
+function SubCard(props) {
+  const { icon, name } = props;
   return (
-    <Block center>
-      <Block width={30} height={30} borderRadius={15} backgroundColor={colors.orange} center middle>
-        <Entypo name="grid" size={24} color={colors.white} />
+    <TouchableOpacity>
+      <Block backgroundColor={'rgba(255, 255, 255, .9)'} marginTop={10} height={90} width={100} padding={10} borderRadius={15}>
+        <Block center>{icon}</Block>
+        <Text center color={colors.black} size={13} style={{ marginTop: 2 }}>
+          {name}
+        </Text>
       </Block>
-      <Text color={colors.black} size={12} style={{ width: 70, textAlign: 'center' }}>
-        {title}
-      </Text>
-    </Block>
-  );
-}
-function Row({ title1, title2, title3 }) {
-  return (
-    <Block row spacebetween margin={10} height={70}>
-      <Card title={title1} />
-      <Card title={title2} />
-      <Card title={title3} />
-    </Block>
+    </TouchableOpacity>
   );
 }
 
-// function SubCard(props) {
-//   const { image, name, amount } = props;
-//   return (
-//     <Block backgroundColor={colors.black} marginTop={10} height={130} width={110} padding={10} borderRadius={15}>
-//       <Block>
-//         <Image source={image} style={{ width: 90, height: 60 }} />
-//       </Block>
-//       <Text color={colors.white} style={{ marginTop: 10 }}>
-//         {name}
-//       </Text>
-//       <Text color={colors.white} style={{ marginTop: 5 }}> -{amount}</Text>
-//     </Block>
-//   );
-// }
-export default function Home() {
-  const sliderWidth = Dimensions.get('window').width;
-  let carousel;
-  const [activeNumber, setActiveNumber] = useState(0);
-  const [carouselList, setCarouselList] = useState([
-    {
-      image: <Image source={mastercard} />,
-    },
-    {
-      image: <Image source={mastercard} />,
-    },
-    {
-      image: <Image source={mastercard} />,
-    },
-  ]);
+export default function Home({ navigation }) {
+  const showAlert = () =>
+    Alert.alert('Confirm', 'Do you want to logout?', [
+      {
+        text: 'Cancel',
+        onPress: () => console.log('Cancel Pressed'),
+      },
+
+      { text: 'OK', onPress: () => console.log('OK Pressed') },
+    ]);
 
   return (
     <SafeAreaView style={{ height: '100%', width: '100%', display: 'flex' }}>
-      <Block row spacebetween marginLeft={15}>
+      <LinearGradient colors={['rgba(0,0,0,0.6)', '#f58326']} locations={[0.5, 1.2]} style={{ position: 'absolute', height: 80, alignItems: 'center', width: '100%' }} />
+      <Block row spacebetween margin={15} marginBottom={0}>
+        <TouchableOpacity>
+          <FontAwesome5 name="user" size={28} color={colors.white} />
+        </TouchableOpacity>
         {/* icons will be inserted */}
         <Block row>
-          <Text bold size={20} color={colors.orange}>
-            Fidelity
+          <Text bold size={20} color={colors.orange} style={{ fontStyle: 'italic' }}>
+            FIDELITY
           </Text>
           <Text size={20} color={colors.gray}>
-            Bank
+            BANK
           </Text>
         </Block>
+        <TouchableOpacity onPress={() => showAlert()}>
+          <FontAwesome name="power-off" size={28} color={colors.white} />
+        </TouchableOpacity>
       </Block>
 
-      <Block middle center row marginTop={8}>
-        <Text size={30} color={colors.gray}>
-          Hello,{' '}
-        </Text>
-        <Text bold size={30} color={colors.orange}>
-          John
-        </Text>
-      </Block>
-
-      <Block center width="92%" height={160} margin={15} borderRadius={10} backgroundColor={colors.white} style={{ elevation: 2 }}>
-        <Text color={colors.black} size={16} style={{ marginTop: 10 }}>
-          Mr.
-        </Text>
-        <Text bold color={colors.black} size={25}>
-          John Doe
-        </Text>
-        <Block row spacebetween center marginTop={30} style={{ width: '85%' }}>
-          <TouchableOpacity style={{ backgroundColor: colors.orange, padding: 10, borderRadius: 5 }}>
-            <Text color={colors.white}>My Accounts</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={{ borderWidth: 5, borderColor: colors.black, borderRadius: 10 }}>
-            <Image source={qrcode} style={{ width: 40, height: 40, borderRadius: 5 }} />
-          </TouchableOpacity>
+      <ImageBackground source={homebg} style={{ height: '100%', width: '100%' }}>
+        <Block middle center row>
+          <Text size={30} color={colors.gray}>
+            Hello,{' '}
+          </Text>
+          <Text bold size={30} color={colors.orange}>
+            John
+          </Text>
         </Block>
-      </Block>
+        <Block center width="92%" height={110} margin={15} borderRadius={10} backgroundColor={'rgba(255, 255, 255, .9)'}>
+          <Text color={colors.black} size={16}>
+            Mr.
+          </Text>
+          <Text bold color={colors.black} size={25}>
+            John Doe
+          </Text>
+          <Block row spacebetween center marginTop={2} style={{ width: '85%' }}>
+            <TouchableOpacity style={{ backgroundColor: colors.orange, padding: 8, borderRadius: 5 }}>
+              <Text color={colors.white}>My Accounts</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={{ borderWidth: 5, borderColor: colors.black, borderRadius: 10 }}>
+              <Image source={qrcode} style={{ width: 35, height: 35, borderRadius: 5 }} />
+            </TouchableOpacity>
+          </Block>
+        </Block>
 
-      <LinearGradient
-        colors={['rgba(0,0,0,0.2)', '#f58326']}
-        locations={[0.1, 0.9]}
-        style={{ position: 'absolute', bottom: '0%', height: '50%', alignItems: 'center', width: '100%', borderRadius: 20 }}
-      />
-
-      <Block center>
-        <Text size={20} bold>
-          Your Cards
-        </Text>
-        <Carousel
-          layout={'default'}
-          //ref={(ref) => (carousel = ref)}
-          activeAnimationType={'spring'}
-          data={carouselList}
-          sliderWidth={sliderWidth}
-          itemWidth={250}
-          renderItem={renderItem}
-          onSnapToItem={(index) => setActiveNumber(index)}
-        />
-        <Pagination
-          dotsLength={carouselList.length}
-          activeDotIndex={activeNumber}
-          containerStyle={{ backgroundColor: 'transparent', height: 1, width: 1 }}
-          dotStyle={{
-            width: 10,
-            height: 10,
-            borderRadius: 5,
-            backgroundColor: colors.black,
-          }}
-          inactiveDotStyle={{
-            backgroundColor: colors.black,
-          }}
-          inactiveDotOpacity={0.6}
-          inactiveDotScale={0.6}
-        />
-      </Block>
-
-      <Block backgroundColor={colors.white} marginLeft={15} borderRadius={10} width="92%">
-        <Row title1="Transfers" title2="Payments" title3="Airtime & Data" />
-        <Row title1="My Payees" title2="Account Services" title3="View All" />
-      </Block>
+        <Block row spacebetween margin={10}>
+          <SubCard name="Transfers" icon={<MaterialCommunityIcons name="bank-transfer" size={40} color="darkorange" />} />
+          <SubCard name="Payments" icon={<MaterialIcons name="payments" size={36} color="darkorange" />} />
+          <SubCard name="Airtime & Data" icon={<MaterialCommunityIcons name="account-cash" size={36} color="darkorange" />} />
+        </Block>
+        <Block row spacebetween margin={10}>
+          <SubCard name="My Payees" icon={<Entypo name="users" size={36} color="darkorange" />} />
+          <SubCard name="Account Services" icon={<MaterialIcons name="contact-phone" size={36} color="darkorange" />} />
+          <SubCard name="View All" icon={<Entypo name="grid" size={40} color="darkorange" />} />
+        </Block>
+      </ImageBackground>
     </SafeAreaView>
   );
 }
 
-const renderItem = ({ item, index }) => {
-  return (
-    <TouchableOpacity style={{ marginTop: -60, justifyContent: 'center', alignItems: 'center' }}>
-      <Text style={{ height: 220, width: '100%', justifyContent: 'center' }}>{item.image}</Text>
-    </TouchableOpacity>
-  );
-};
