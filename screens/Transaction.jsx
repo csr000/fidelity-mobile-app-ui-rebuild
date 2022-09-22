@@ -1,6 +1,5 @@
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { FlatList, TouchableOpacity } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
 import DATA from '../services/transaction/data';
 import { colors } from '../components/theme';
 import Block from '../components/Block';
@@ -35,12 +34,12 @@ export default function Home({ navigation }) {
 
   return (
     <SafeAreaView>
-      <LinearGradient colors={['rgba(0,0,0,0.6)', '#f58326']} locations={[0.35, 0.9]} style={{ height: 80, alignItems: 'center', width: '100%', position: 'absolute' }}>
+      {/* <LinearGradient colors={['rgba(0,0,0,0.6)', '#f58326']} locations={[0.35, 0.9]} style={{ height: 80, alignItems: 'center', width: '100%', position: 'absolute' }}>
         <Text size={18} color={colors.white} style={{ marginTop: 30 }}>
           Transactions
         </Text>
-        {/* <Nav navigation={navigation} title="History"  /> */}
-      </LinearGradient>
+      </LinearGradient> */}
+      <Nav navigation={navigation} title="Transactions" />
       <FlatList
         data={DATA}
         keyExtractor={(item) => item.id}
@@ -48,7 +47,7 @@ export default function Home({ navigation }) {
         contentContainerStyle={{
           paddingHorizontal: 2,
           paddingBottom: 150,
-          marginTop: 50,
+          // marginTop: 50,
         }}
       />
     </SafeAreaView>
