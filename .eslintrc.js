@@ -22,5 +22,8 @@ module.exports = {
     'react/jsx-props-no-spreading': 'off',
     'react/jsx-one-expression-per-line': 'off',
     'react/no-unstable-nested-components': 'off',
+    'no-console': 'off',
+    'object-curly-newline': 'off',
+    'implicit-arrow-linebreak': 'off',
   },
 };
