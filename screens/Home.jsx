@@ -12,7 +12,7 @@ import Text from '../components/Text';
 function SubCard(props) {
   const { icon, name } = props;
   return (
-    <Block backgroundColor="rgba(255, 255, 255, .9)" marginVertical={20} height={90} width={100} padding={10} borderRadius={15} elevation={5}>
+    <Block backgroundColor="rgba(255, 255, 255, .9)" marginVertical={18} height={90} width={100} padding={10} borderRadius={15} elevation={5}>
       <TouchableOpacity>
         <Block center>{icon}</Block>
         <Text center color={colors.black} size={13} style={{ marginTop: 2 }}>
@@ -37,7 +37,7 @@ export default function Home() {
   return (
     <SafeAreaView style={{ height: '100%', width: '100%', display: 'flex', alignItems: 'center' }}>
       {/* <LinearGradient colors={['rgba(0,0,0,0.6)', '#f58326']} locations={[0.5, 1.2]} style={{ position: 'absolute', height: 80, alignItems: 'center', width: '100%' }} /> */}
-      <Block row spacebetween width="94%" margin={15} backgroundColor={colors.white} padding={10} borderRadius={20} elevation={3}>
+      <Block row spacebetween width="94%" margin={15} backgroundColor={colors.white} padding={10} borderRadius={10} elevation={1}>
         {/* icons will be inserted */}
         <Block row>
           <Text bold size={20} color={colors.orange} style={{ fontStyle: 'italic' }}>
