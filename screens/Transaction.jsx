@@ -11,7 +11,7 @@ export default function Home({ navigation }) {
     <TouchableOpacity
       style={{
         borderBottomWidth: 1,
-        borderColor: colors.gray,
+        borderColor: colors.orange,
         margin: 10,
         height: 100,
       }}>
