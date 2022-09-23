@@ -1,11 +1,11 @@
 import { Image, ScrollView, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { MaterialIcons, MaterialCommunityIcons, SimpleLineIcons } from '@expo/vector-icons';
 import Block from '../components/Block';
 import Text from '../components/Text';
 import { colors } from '../components/theme';
 import Nav from '../components/Nav';
-import { MaterialIcons, MaterialCommunityIcons, SimpleLineIcons } from '@expo/vector-icons';
 
 import profile from '../assets/profile.jpg';
 
@@ -44,7 +44,6 @@ export default function Setting({ navigation }) {
       <Nav navigation={navigation} title="Account Setting" />
       <ScrollView showsVerticalScrollIndicator={false} showsHorizontalScrollIndicator={false}>
         <Block middle center flex={1} paddingBottom={150}>
-          {/* <Block width={200} height={200} marginBottom={10} borderRadius={100} backgroundColor={colors.gray} /> */}
           <Image
             source={profile}
             style={{
@@ -78,11 +77,16 @@ export default function Setting({ navigation }) {
           />
           <Row
             title1="Update Accounts"
-            title2="Sole Proprietor Accounts"
+            title2="Proprietor Accounts"
             icon1={<MaterialCommunityIcons name="account-clock-outline" size={36} color={colors.orange} />}
             icon2={<MaterialIcons name="account-box" size={36} color={colors.orange} />}
           />
-          <Row title1="Pin Setup" title2="Biometrics" icon1={<SimpleLineIcons name="lock" size={36} color={colors.orange} />} icon2={<MaterialCommunityIcons name="fingerprint" size={36} color={colors.orange} />} />
+          <Row
+            title1="Pin Setup"
+            title2="Biometrics"
+            icon1={<SimpleLineIcons name="lock" size={36} color={colors.orange} />}
+            icon2={<MaterialCommunityIcons name="fingerprint" size={36} color={colors.orange} />}
+          />
           <Row
             title1="App Reset"
             title2="Change Theme"
