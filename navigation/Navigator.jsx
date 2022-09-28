@@ -1,5 +1,5 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { SimpleLineIcons, Foundation, Feather } from 'expo-vector-icons';
+import { SimpleLineIcons, Foundation, Feather } from '@expo/vector-icons';
 import { TouchableOpacity } from 'react-native';
 
 import Alert from '../screens/Alert';
