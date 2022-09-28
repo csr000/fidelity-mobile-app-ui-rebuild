@@ -1,18 +1,15 @@
-import React from "react";
-import { TouchableOpacity, View, Text } from "react-native";
-import styles from "../styles/Welcomestyle";
+import { TouchableOpacity } from 'react-native';
 import Block from '../components/Block';
+import Text from '../components/Text';
 
 export default function Welcomescreen({ navigation }) {
   return (
     <Block>
-      <Block >
-        <Text >LOGO</Text>
+      <Block center marginTop={100}>
+        <Text>HELLO</Text>
       </Block>
-      <TouchableOpacity
-        onPress={() => navigation.navigate("Onboarding")}
-      >
-        <Text>Continue</Text>
+      <TouchableOpacity onPress={() => navigation.navigate('Onboarding')}>
+        <Text center>Continue</Text>
       </TouchableOpacity>
     </Block>
   );
