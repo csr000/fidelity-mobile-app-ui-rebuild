@@ -57,7 +57,7 @@ export default function Home() {
           Hello,{' '}
         </Text>
         <Text bold size={30} color={colors.orange}>
-          John.
+          Jane.
         </Text>
       </Block>
 
@@ -66,7 +66,7 @@ export default function Home() {
           Mr.
         </Text>
         <Text bold color={colors.black} size={25}>
-          John Doe
+          Jane Smith
         </Text>
         <Block row spacebetween center marginTop={2} width="85%">
           <TouchableOpacity style={{ backgroundColor: colors.orange, padding: 8, borderRadius: 20 }}>

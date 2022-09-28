@@ -6,7 +6,7 @@ export const colors = {
   gray2: '#ECEDEF',
   button: '#F4F5F7',
   orange: '#f58326',
-  green : '#008000',
+  green: '#008000',
 };
 
 export const font = {};
