@@ -8,15 +8,17 @@ import Text from '../components/Text';
 const Dots = ({ selected }) => {
   let backgroundColor;
 
-  backgroundColor = selected ? 'orange' : 'white';
+  backgroundColor = selected ? '#f58326' : 'transparent';
   return (
     <Block
       style={{
-        width: 6,
-        height: 6,
-        marginHorizontal: 3,
+        width: 10,
+        height: 10,
+        marginHorizontal: 5,
         backgroundColor,
-        borderRadius: 3,
+        borderRadius: 5,
+        borderWidth: 1,
+        borderColor: colors.orange,
       }}
     />
   );
@@ -31,12 +33,7 @@ const Skip = ({ ...props }) => (
 const Continue = ({ ...props }) => (
   <TouchableOpacity
     style={{
-      marginHorizontal: 10,
-      height: 40,
-      width: 70,
-      padding: 5,
-      borderTopLeftRadius: 20,
-      borderBottomLeftRadius: 20,
+      padding: 15,
       alignItems: 'center',
       justifyContent: 'center',
     }}
@@ -73,42 +70,38 @@ const OnboardingScreen = ({ navigation }) => {
       NextButtonComponent={Continue}
       DoneButtonComponent={Done}
       DotComponent={Dots}
-      bottomBarHighlight={false}
+      bottomBarColor="rgba(251, 192, 147, 0.9)"
+      //bottomBarHighlight={false}
       titleStyles={{
         color: colors.black,
-        height: 60,
-        width: 300,
-        padding: 15,
-        borderTopRightRadius: 20,
-        borderTopLeftRadius: 20,
-        marginTop: 100,
       }}
       subTitleStyles={{
         color: colors.black,
-        height: 150,
-        width: 300,
-        padding: 25,
-        borderBottomRightRadius: 20,
-        borderBottomLeftRadius: 20,
-        fontSize: 12,
-        letterSpacing: 1,
       }}
+      imageContainerStyles={
+        {
+          //paddingTop: 200,
+        }
+      }
       onSkip={() => navigation.replace('TabNavigation')}
       onDone={() => navigation.navigate('TabNavigation')}
       pages={[
         {
-          // image: <Image />,
-          title: 'Demo',
+          backgroundColor: '#fff',
+          image: <Image source={require('../assets/img/credit_payment.png')} />,
+          title: 'Credit Card Payments',
           subtitle: 'Demo',
         },
         {
-          // image: <Image />,
-          title: 'Demo',
+          backgroundColor: '#fff',
+          image: <Image source={require('../assets/img/mobile_money.png')} />,
+          title: 'Mobile Pay',
           subtitle: 'Demo',
         },
         {
-          // image: <Image />,
-          title: 'Demo',
+          backgroundColor: '#fff',
+          image: <Image source={require('../assets/img/transfer_money.png')} />,
+          title: 'Online Transactions',
           subtitle: 'Demo',
         },
       ]}
