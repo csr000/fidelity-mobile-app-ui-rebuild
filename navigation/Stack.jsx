@@ -9,7 +9,7 @@ export default function StackNavigator() {
   return (
     <Stack.Navigator initialRouteName={Welcome} screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Welcome" component={Welcome} />
-      <Stack.Screen name="Onboarding" component={Onboarding} />
+      {/* <Stack.Screen name="Onboarding" component={Onboarding} /> */}
       <Stack.Screen name="TabNavigation" component={TabNavigation} />
     </Stack.Navigator>
   );
