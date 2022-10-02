@@ -34,7 +34,6 @@ const OnboardingScreen = ({ navigation }) => {
   const viewableItemsChanged = useRef(({ viewableItems }) => {
     setCurrentIndex(viewableItems[0].index);
   }).current;
-  
 
   //scroll to next slide function
   const scrollTo = () => {
@@ -43,7 +42,7 @@ const OnboardingScreen = ({ navigation }) => {
     }
   };
 
-  //pagination 
+  //pagination
   const Paginator = () => {
     return (
       <Block row height={100} middle>
@@ -73,7 +72,6 @@ const OnboardingScreen = ({ navigation }) => {
     );
   };
 
-
   return (
     <SafeAreaView style={{ backgroundColor: colors.black, height: '100%' }}>
       <Block style={{ backgroundColor: colors.white, height: '90%', borderBottomLeftRadius: 30, borderBottomRightRadius: 30 }}>
@@ -97,26 +95,30 @@ const OnboardingScreen = ({ navigation }) => {
       </Block>
 
       <Block center>
-        {currentIndex == data.length -1 ? (
-        <TouchableOpacity style={{ width: '60%', height: '23%', backgroundColor: colors.orange, marginTop: -23, justifyContent: 'center', alignItems: 'center', borderRadius: 30 }} onPress={()=> scrollTo()}>
-          <Text color={colors.white} size={16}>
-            Done
-          </Text>
-        </TouchableOpacity>
-        ) :(
-        <TouchableOpacity style={{ width: '60%', height: '23%', backgroundColor: colors.orange, marginTop: -23, justifyContent: 'center', alignItems: 'center', borderRadius: 30 }} onPress={()=> scrollTo()}>
-          <Text color={colors.white} size={16}>
-            Next
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={()=> navigation.navigate('TabNavigation')}>
-          <Text color={colors.white} size={16} style={{ marginTop: 10 }}>
-            Skip for now
-          </Text>
-        </TouchableOpacity>)
-        }
-        
-        
+        {currentIndex == data.length - 1 ? (
+          <TouchableOpacity
+            style={{ width: '60%', height: '25%', backgroundColor: colors.orange, marginTop: -23, justifyContent: 'center', alignItems: 'center', borderRadius: 30 }}
+            onPress={() => navigation.navigate('TabNavigation')}>
+            <Text color={colors.white} size={16}>
+              Done
+            </Text>
+          </TouchableOpacity>
+        ) : (
+          <>
+            <TouchableOpacity
+              style={{ width: '60%', height: '23%', backgroundColor: colors.orange, marginTop: -23, justifyContent: 'center', alignItems: 'center', borderRadius: 30 }}
+              onPress={() => scrollTo()}>
+              <Text color={colors.white} size={16}>
+                Next
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('TabNavigation')}>
+              <Text color={colors.white} size={16} style={{ marginTop: 10 }}>
+                Skip for now
+              </Text>
+            </TouchableOpacity>
+          </>
+        )}
       </Block>
     </SafeAreaView>
   );
