@@ -12,14 +12,17 @@ const { width } = Dimensions.get('window');
 
 //render item for flatlist
 const renderItem = ({ item }) => (
-  <Block center>
+  <Block center >
     <Image source={item.image} style={{ resizeMode: 'contain', width, justifyContent: 'center', marginTop: 10 }} />
-    <Block>
+    <Block style={{position:'absolute', bottom:'20%'}}>
       <Text center size={28} bold color={colors.orange} style={{ marginBottom: 10 }}>
         {item.title}
       </Text>
-      <Text center size={18} color={colors.gray} style={{ paddingHorizontal: 64 }}>
+      <Text center size={14} color={colors.gray} style={{ paddingHorizontal: 64, marginTop:20 }}>
         {item.description}
+      </Text>
+      <Text center size={14} color={colors.gray}  >
+        {item.text}
       </Text>
     </Block>
   </Block>
