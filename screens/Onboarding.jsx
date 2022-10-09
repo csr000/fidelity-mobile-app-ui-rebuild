@@ -1,16 +1,14 @@
-import { Image, TouchableOpacity, SafeAreaView, FlatList, Dimensions, Animated, View } from 'react-native';
+import { Image, TouchableOpacity, SafeAreaView, FlatList, Dimensions, Animated } from 'react-native';
 
-import Onboarding from 'react-native-onboarding-swiper';
+import { useRef, useState } from 'react';
 import data from '../services/onboarding/data';
 import { colors } from '../components/theme';
 import Block from '../components/Block';
 import Text from '../components/Text';
-import { useRef, useState } from 'react';
-import { LinearGradient } from 'expo-linear-gradient';
 
 const { width } = Dimensions.get('window');
 
-//render item for flatlist
+// render item for flatlist
 const renderItem = ({ item }) => (
   <Block center>
     <Image source={item.image} style={{ resizeMode: 'contain', width, justifyContent: 'center', marginTop: 10 }} />
@@ -25,7 +23,7 @@ const renderItem = ({ item }) => (
   </Block>
 );
 
-const OnboardingScreen = ({ navigation }) => {
+function OnboardingScreen({ navigation }) {
   const viewConfig = useRef({ viewAreaCoveragePercentThreshold: 50 }).current;
   const [currentIndex, setCurrentIndex] = useState(0);
   const scrollX = useRef(new Animated.Value(0)).current;
@@ -35,15 +33,15 @@ const OnboardingScreen = ({ navigation }) => {
     setCurrentIndex(viewableItems[0].index);
   }).current;
 
-  //scroll to next slide function
+  // scroll to next slide function
   const scrollTo = () => {
     if (currentIndex < data.length - 1) {
       Ref.current.scrollToIndex({ index: currentIndex + 1 });
     }
   };
 
-  //pagination
-  const Paginator = () => {
+  // pagination
+  function Paginator() {
     return (
       <Block row height={100} middle>
         {data.map((_, i) => {
@@ -70,7 +68,7 @@ const OnboardingScreen = ({ navigation }) => {
         })}
       </Block>
     );
-  };
+  }
 
   return (
     <SafeAreaView style={{ backgroundColor: colors.black, height: '100%' }}>
@@ -95,7 +93,7 @@ const OnboardingScreen = ({ navigation }) => {
       </Block>
 
       <Block center>
-        {currentIndex == data.length - 1 ? (
+        {currentIndex === data.length - 1 ? (
           <TouchableOpacity
             style={{ width: '60%', height: '25%', backgroundColor: colors.orange, marginTop: -23, justifyContent: 'center', alignItems: 'center', borderRadius: 30 }}
             onPress={() => navigation.navigate('TabNavigation')}>
@@ -122,6 +120,6 @@ const OnboardingScreen = ({ navigation }) => {
       </Block>
     </SafeAreaView>
   );
-};
+}
 
 export default OnboardingScreen;
